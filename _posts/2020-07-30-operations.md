@@ -99,6 +99,8 @@ sed 's/aa/11/' file1 file2 ...
 - 列：field  
 - NR：number of record  
 - NF：number of field  
+
+
 ### 基本操作：
 ```
 awk '{print $0}' access.log (打印所有列)
@@ -130,7 +132,6 @@ awk 'BEGIN{FS=","}{print $1}'
 BEGIN表示全局变量，FS表示输入分隔符，OFS表示输出分隔符
 awk默认的输入分隔符和输出分隔符是分别定义的
 awk 'BEGIN{FS=",";OFS=","}{print $1,$2}'
-
 awk '{print NR,FILENAME,$0}' staff.txt data.txt (会把data的内容追加打印在staff的下方显示)
 ```
 ### 隐藏某列内容

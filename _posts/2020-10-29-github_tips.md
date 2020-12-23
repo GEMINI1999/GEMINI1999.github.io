@@ -1,11 +1,3 @@
-<!--
- * @Descripttion: 
- * @version: 
- * @Author: yingyaopeng
- * @Date: 2020-12-22 23:23:07
- * @LastEditors: yingyaopeng
- * @LastEditTime: 2020-12-23 15:54:37
--->
 ---
 layout: article
 title: "Github小技巧"
