@@ -1,10 +1,10 @@
 ---
 layout: article
-title: 运
+title: "运维"
 key: 1
-tags:
+tags: 
+        - shell
         - 运维
-	- shell
 toc: true
 ---
 ## **运维常用命令**
