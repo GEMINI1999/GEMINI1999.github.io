@@ -7,10 +7,10 @@ tags:
 toc: true
 ---
 ## **运维常用命令**
-1. 清屏 clear, ctrl + l
-2. 创建文件夹 mkdir abc
-3. 创建文件 touch abc
-4. 设置权限 chmod 755 abc, chmod -x abc, chmod a+x abc, chmod a+w abc  
+清屏 clear, ctrl + l
+创建文件夹 mkdir abc
+创建文件 touch abc
+设置权限 chmod 755 abc, chmod -x abc, chmod a+x abc, chmod a+w abc  
 注意  
 r 代表读权限，用数值4表示  
 w 代表写权限，用数字2表示  
