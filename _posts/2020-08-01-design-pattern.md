@@ -1,11 +1,9 @@
 ---
-layout: post
+layout: article
 title: 设计模式也可以这么简单
-date: 2020-08-01 12:59
 tags: 
         - Java
         - 设计模式
-reward: true
 toc: true
 ---
 

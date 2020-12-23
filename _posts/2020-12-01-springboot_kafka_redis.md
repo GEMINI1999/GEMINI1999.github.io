@@ -1,15 +1,12 @@
 ---
-layout: post
+layout: article
 title: "SpringBoot集成mybatis、kafka、redis、websocket"
-date: 2020-12-1 11:02
-comments: true
 tags: 
         - Spring
         - SpringBoot
         - kafka
         - redis
         - websocket
-reward: true
 toc: true
 ---
 ## pom.xml

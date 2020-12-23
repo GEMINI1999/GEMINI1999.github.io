@@ -1,12 +1,9 @@
 ---
 layout: post
 title: "WebSocket 远程端点处于[TEXT_FULL_WRITING]状态"
-date: 2020-12-1 15:30
-comments: true
 tags: 
         - websocket
         - 报错
-reward: true
 toc: true
 ---
 ### 报错信息

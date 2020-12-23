@@ -1,12 +1,17 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: yingyaopeng
+ * @Date: 2020-12-22 23:23:07
+ * @LastEditors: yingyaopeng
+ * @LastEditTime: 2020-12-23 15:54:37
+-->
 ---
-layout: post
+layout: article
 title: "Github小技巧"
-date: 2020-10-29 18:30
-comments: true
 tags: 
         - Github
         - 搜索
-reward: true
 toc: true
 ---
 ## 搜索

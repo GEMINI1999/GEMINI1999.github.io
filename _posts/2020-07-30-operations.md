@@ -1,12 +1,9 @@
 ---
-layout: post
-title: 运维学习笔记
-date: 2020-7-30 17:35
-comments: true
+layout: article
+title: "运维学习笔记"
 tags: 
 	- 运维
 	- shell
-reward: true
 toc: true
 ---
 ## **运维常用命令**
@@ -103,7 +100,6 @@ sed 's/aa/11/' file1 file2 ...
 - 列：field  
 - NR：number of record  
 - NF：number of field  
-***例：***  
 ### 基本操作：
 ```
 awk '{print $0}' access.log (打印所有列)
