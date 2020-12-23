@@ -3,13 +3,13 @@
 {%- include snippets/get-locale-string.html key='SEARCH' -%}
 {%- assign _locale_search = __return -%}
 
-{%- if site.search.provider == 'google' -%}
+<!-- {%- if site.search.provider == 'google' -%}
   <script>window.useDefaultSearchBox = false;</script>
 {%- endif -%}
 
 {%- if site.search.provider -%}
   <script>{%- include scripts/components/search.js -%}</script>
-{%- endif -%}
+{%- endif -%} -->
 
 {%- if site.search.provider == 'default' -%}
   {%- include search-providers/default/search.html -%}
