@@ -1,4 +1,6 @@
 header:
+  - title:      文章
+    url:        
   - titles:
       # @start locale config
       en      : &EN       Archive
@@ -48,3 +50,6 @@ header:
       fr-LU   : *FR
       # @end locale config
     url: /about.html
+  
+  - title:      GitHub
+    url:        https://github.com/GEMINI1999
