@@ -1,6 +1,6 @@
 ---
 layout: article
-title: "运维"
+title: "Linux运维"
 key: 1
 tags: 
         - shell
