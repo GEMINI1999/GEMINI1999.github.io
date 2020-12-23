@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "WebSocket 远程端点处于[TEXT_FULL_WRITING]状态"
 tags: 
         - websocket

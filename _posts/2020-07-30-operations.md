@@ -44,7 +44,6 @@ find [目录] -[参数] -exec [命令] {} +
 ```
 ### -exec特点
 这两种-exec中的tar命令的使用等效
-<!-- more -->
 ```
 find . -type f -exec tar -czvf n.tar.gz {} +
 find . -type f -exec tar -uvf n.tar.gz {} \;
