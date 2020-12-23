@@ -85,19 +85,19 @@ toc:
 ## => Markdown Enhancements
 ##############################
 ## Mathjax
-mathjax: true # false (default), true
-mathjax_autoNumber: true # false (default), true
+mathjax: false # false (default), true
+mathjax_autoNumber: false # false (default), true
 
 ## Mermaid
-mermaid: true # false (default), true
+mermaid: false # false (default), true
 
 ## Chart
-chart: true # false (default), true
+chart: false # false (default), true
 
 
 ## => Paginate
 ##############################
-paginate: 8
+paginate: 6
 paginate_path: /page:num # don't change this unless for special need
 
 
@@ -132,8 +132,8 @@ comments:
     clientSecret: 1f077381808ac6eb28c12ff70c76bd4c4faae307 # GitHub Application Client Secret
     repository  : GEMINI1999.github.io # GitHub repo
     owner       : GEMINI1999 # GitHub repo owner
-    admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
-      - GEMINI1999 # - your GitHub Id
+    admin: GEMINI1999 # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
+         # - your GitHub Id
 
   ## Valine
   # please refer to https://valine.js.org/en/ for more info.
@@ -148,13 +148,13 @@ comments:
 ## => Pageview
 ##############################
 pageview:
-  provider: false # false (default), "leancloud", "custom"
+  provider: leancloud # false (default), "leancloud", "custom"
 
   ## Leancloud
   leancloud:
-    app_id    : # LeanCloud App id
-    app_key   : # LeanCloud App key
-    app_class : # LeanCloud App class
+    app_id    : eqpSRveJ38hzzNtx98f5QOvh-gzGzoHsz # LeanCloud App id
+    app_key   : j1IR5p2nw8qN6jcUozgzlQDn # LeanCloud App key
+    app_class : blogTest # LeanCloud App class
 
 
 ## => Search
@@ -170,12 +170,12 @@ search:
 ## => Analytics
 ##############################
 analytics:
-  provider: false # false (default), "google", "custom"
+  provider: google # false (default), "google", "custom"
 
   ## Google Analytics
   google:
-    tracking_id : # Google Analytics id for the site
-    anonymize_ip: true # Anonymize IP tracking for Analytics
+    tracking_id : G-3WX8FQ7LHL # Google Analytics id for the site
+    anonymize_ip: false # Anonymize IP tracking for Analytics
 
 
 ## => Build
