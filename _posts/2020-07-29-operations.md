@@ -99,8 +99,6 @@ sed 's/aa/11/' file1 file2 ...
 列：field  
 NR：number of record  
 NF：number of field  
-
-
 ### 基本操作：
 ```
 awk '{print $0}' access.log (打印所有列)
@@ -145,7 +143,6 @@ awk遇到字符：
 awk '{a=2;b="56ass";c=3;print b+c}' (56+3=59)
 awk '{a=2;b="ass56";c=3;print b+c}' (3)
 ```
-
 ## **grep/egrep**
 ### 功能：基于文本内容的查找
 ```
@@ -170,14 +167,13 @@ find . | xargs grep -ril "IBM"
 ### 功能  
 文本/屏显的切割命令；能接收管道，也能直接操作文本，按行处理  
 默认以制表符为分隔符
--b 按字节切割（1byte=8bit）
--c 按字符切割（character，全角是2个byte，半角是1个byte）
--f 按字段切割（field列）  
--d 指定分隔符（输入、输出一样）
+b 按字节切割（1byte=8bit）
+c 按字符切割（character，全角是2个byte，半角是1个byte）
+f 按字段切割（field列）  
+d 指定分隔符（输入、输出一样）
 ```
 who | cut -b 3 (切割who的输出，并只显示每行的第3个字符)
 ```
-
 ### 范围的表示方法
 |表示|备注|
 |---|---|
@@ -185,7 +181,6 @@ who | cut -b 3 (切割who的输出，并只显示每行的第3个字符)
 |N-|从第N项一直到行尾|
 |N-M|从第N项到第M项(包括M)|
 |-M|从一行的开始到第M项(包括M)|
-
 ```
 cut -d: -f 1,3-5,8- file.txt (-d指定分隔符:,-f指定输出第1列、3-5列、第8列及以后)
 ```
@@ -199,7 +194,6 @@ awk默认把空格、制表符看作分隔符(非field字段)
 标准输入0 standardinput STDIN
 标准输出1 standardoutput STDOUT
 标准错误2 standarderror STDERR
-
 ### 标准输出重定向
 |符号命令|用途|
 |---|---|
@@ -220,7 +214,6 @@ tee -a : 类似于追加符(-a append)
 tee和tee -a都会屏显，>>和>不屏显  
 tee可以同时重定向到多个文件(而>和>>没有这个功能，123 > file1 file2 结果file1里面是123 file2)  
 命令1|tee file.txt|命令2: 将命令1的结果既保存到file.txt中，也传给命令2，并屏显命令2的结果(若有第三个管道，就正常传值)
-
 ### 标准输入重定向
 |符号命令|用途|
 |---|---|
@@ -261,7 +254,6 @@ wc -l：统计行数
 head -5 前5行  
 tail -5 最后5行  
 tail -f 表示一直刷新最后的
-
 ## **shell脚本编写**
 ```shell
 #!/bin/bash
@@ -331,8 +323,6 @@ read -p "Please input your number: " NU
 [ $NU = "1" ] && echo "You are the best" || ([ $NU = "2" ] && echo "Oh my god!")
 
 ```
-
-
 ## **zabbix**
 ```
 [zabbix-server]服务端：监控端，就是监控者
