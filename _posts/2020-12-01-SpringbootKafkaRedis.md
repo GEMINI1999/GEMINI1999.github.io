@@ -1,6 +1,7 @@
 ---
 layout: article
 title: "SpringBoot集成mybatis、kafka、redis、websocket"
+key: 7
 tags: 
         - Spring
         - SpringBoot

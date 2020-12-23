@@ -1,6 +1,7 @@
 ---
 layout: article
 title: "Github小技巧"
+key: 5
 tags: 
         - Github
         - 搜索

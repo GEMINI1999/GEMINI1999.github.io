@@ -1,6 +1,7 @@
 ---
 layout: article
 title: "WebSocket 远程端点处于[TEXT_FULL_WRITING]状态"
+key: 8
 tags: 
         - websocket
         - 报错

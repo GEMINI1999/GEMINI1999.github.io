@@ -1,6 +1,7 @@
 ---
 layout: article
 title: 设计模式也可以这么简单
+key: 3
 tags: 
         - Java
         - 设计模式
