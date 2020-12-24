@@ -11,10 +11,10 @@ mermaid: true #流程图
 chart: true #可交互式图标
 ---
 ## 公式
-$$a \ne 0$$
-$$ax^2 + bx + c = 0$$
-$$x_1 = {-b + \sqrt{b^2-4ac} \over 2a}$$
-$$x_2 = {-b - \sqrt{b^2-4ac} \over 2a} \notag$$
+$$a \ne 0$$  
+$$ax^2 + bx + c = 0$$  
+$$x_1 = {-b + \sqrt{b^2-4ac} \over 2a}$$  
+$$x_2 = {-b - \sqrt{b^2-4ac} \over 2a} \notag$$  
 
 ## 流程图
 ```mermaid
