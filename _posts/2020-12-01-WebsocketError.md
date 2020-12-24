@@ -8,7 +8,7 @@ tags:
 toc: true
 ---
 ### 报错信息
-![error info](/websocket_error/websocket_TEXT_FULL_WRITING.png)
+![error info]({{site.url}}/assets/images/websocket_error/websocket_TEXT_FULL_WRITING.png)
 
 ### 报错原因
 > 当几个线程试图通过相同的会话（套接字）发送一些消息时，会抛出异常
