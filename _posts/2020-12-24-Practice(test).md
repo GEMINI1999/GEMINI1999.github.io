@@ -1,6 +1,6 @@
 ---
 layout: article
-title: "博客公式/流程图/图标测试"
+title: "博客公式/流程图/图表测试"
 key: 9
 tags: 
         - test
