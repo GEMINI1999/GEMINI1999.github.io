@@ -23,11 +23,23 @@ toc: true
 
 ### 插入
 
+```sql
+insert into table_name(col1, col2, ...) values(val1, val2, ...)
+```
+
 ### 更新
+
+```sql
+update table_name set col = val where ...
+```
 
 ### 删除
 
 ### 查询
+
+```sql
+select col1, col2 from table_name where ...
+```
 
 ## 常用`show`命令
 
