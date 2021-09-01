@@ -22,6 +22,10 @@ toc: true
 ## DML（Data Manipulation Language，数据库操纵语言）操作
 
 ### 插入
+```sql
+# 批量插入，比逐条插入速度快
+INSERT INTO tbl_name (a,b,c) VALUES(1,2,3),(4,5,6),(7,8,9);
+```
 
 ### 更新
 
@@ -36,6 +40,10 @@ toc: true
 ### 通配符
 
 ### 聚合函数
+
+### 联表
+
+### 组合
 
 ## 视图
 
