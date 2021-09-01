@@ -27,12 +27,21 @@ toc: true
 INSERT INTO tbl_name (a,b,c) VALUES(1,2,3),(4,5,6),(7,8,9);
 ```
 
+```sql
+insert into table_name(col1, col2, ...) values(val1, val2, ...)
+```
+
 ### 更新
+
+```sql
+update table_name set col = val where ...
+```
 
 ### 删除
 
 ### 查询
 
+<<<<<<< HEAD
 ### 排序
 
 ### 数据过滤
@@ -50,6 +59,11 @@ INSERT INTO tbl_name (a,b,c) VALUES(1,2,3),(4,5,6),(7,8,9);
 ## 存储过程
 
 ## 事务
+=======
+```sql
+select col1, col2 from table_name where ...
+```
+>>>>>>> 7e46d352eaba10231efd9f51b74d24f4b784024b
 
 ## 常用`show`命令
 
