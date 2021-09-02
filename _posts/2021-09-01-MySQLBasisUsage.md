@@ -47,7 +47,45 @@ select col1, col2 from table_name where ...
 
 ### 排序
 
+关键字：`order by`
+
+> 默认排序规则为升序(`ASC`)，若需要降序排序需要指定关键字`DESC`，而且`DESC`关键字只应用到位于其前面的列名，因此要想在多个列上进行降序排序，必须对每一列指定`DESC`关键字
+
+```sql
+select col1, col2 from table_name order by table_name.num
+```
+
 ### 数据过滤
+
+关键字：`where`
+
+> 在同时使用`order by`和`where`语句时，注意要让`order by`语句位于`where`语句之后，否则会产生错误
+
+```sql
+# 同样类似的where也适用于delete和update
+select col2, col2 from table_name where ...
+```
+
+`where`语句有如下常用运算符：
+
+|符号|含义|
+|---|---|
+|=|等于|
+|>|大于|
+|<|小于|
+|>=|大于等于|
+|<=|小于等于|
+|<>,!=|不等于|
+|between ... and ...|一个值是否在范围中|
+|not between ... and ...|一个值是否不在范围中|
+|in|一个值是否在一组值内|
+|not in|一个值是否不在一组值内|
+|like|简单的模式匹配|
+|not like|简单模式匹配的否定|
+|is|针对布尔值的测试|
+|is not|针对布尔值的测试|
+|is null|空值测试|
+|is not null|非空值测试|
 
 ### 通配符
 
