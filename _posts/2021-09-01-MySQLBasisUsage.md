@@ -55,7 +55,7 @@ select col1, col2 from table_name where ...
 
 ### 联表
 
-MySQL支持四种类型的连接：
+MySQL支持三种类型的连接：
 - 内连接（`inner join`）
 - 左连接（`left join`）
 - 右连接（`right join`）
@@ -96,27 +96,41 @@ values(1, "小红", 90),
 ```
 
 效果如下：
-![例子]({{site.url}}/assets/images/MySQLBasisUsage/join_example_table.png)
+![连接测试表]({{site.url}}/assets/images/MySQLBasisUsage/join_example_table.png)
 
 #### `inner join`
-
-`inner join`的语句需要一个连接谓词的条件
 
 ```sql
 select t1.user_name, t2.grade from t1 inner join t2 on t1.user_name = t2.user_name;
 ```
 
+`sql`执行结果如下:
+![innerjoin执行结果]({{site.url}}/assets/images/MySQLBasisUsage/innor_join_execute_result.png)
+
+很明显可以看出，`inner join`只对左右表完全等值的记录才会作连接（可以简单理解为两个表的交集）。
+
+
 #### `left join`
 
 ```sql
-select col1, col2 from table_name1 left join table_name2 on table_name1.id = table_name2.id
+select t1.user_name, t2.grade from t1 left join t2 on t1.user_name = t2.user_name;
 ```
+
+`sql`执行结果如下:
+![leftjoin执行结果]({{site.url}}/assets/images/MySQLBasisUsage/left_join_execute_result.png)
+
+可以看到，`left join`将左侧表作为主表，根据连接谓词条件，与右表中的记录进行比较，满足连接谓词条件的记录与左表进行合并，不满足的用NULL来表示。
 
 #### `right join`
 
 ```sql
 select col1, col2 from table_name1 right join table_name2 on table_name1.id = table_name2.id
 ```
+
+`sql`执行结果如下:
+![leftjoin执行结果]({{site.url}}/assets/images/MySQLBasisUsage/right_join_execute_result.png)
+
+`right join`的结果与`left join`刚好相反，`right join`将右侧表作为主表，根据连接谓词条件，与左表中的记录进行比较，满足连接谓词条件的记录与右表进行合并，不满足的用NULL来表示。
 
 ### 组合
 
