@@ -49,7 +49,7 @@ select col1, col2 from table_name where ...
 
 关键字：`order by`
 
-> 默认排序规则为升序(`ASC`)，若需要降序排序需要指定关键字`DESC`，而且`DESC`关键字只应用到位于其前面的列名，因此要想在多个列上进行降序排序，必须对每一列指定`DESC`关键字
+> 默认排序规则为升序(`ASC`)，若需要降序排序需要指定关键字`DESC`，而且`DESC`关键字只应用到位于其前面的列名，因此要想在多个列上进行降序排序，必须对每一列指定`DESC`关键字。
 
 ```sql
 select col1, col2 from table_name order by table_name.num
@@ -59,7 +59,7 @@ select col1, col2 from table_name order by table_name.num
 
 关键字：`where`
 
-> 在同时使用`order by`和`where`语句时，注意要让`order by`语句位于`where`语句之后，否则会产生错误
+> 在同时使用`order by`和`where`语句时，注意要让`order by`语句位于`where`语句之后，否则会产生错误。
 
 ```sql
 # 同样类似的where也适用于delete和update
@@ -87,7 +87,17 @@ select col2, col2 from table_name where ...
 |is null|空值测试|
 |is not null|非空值测试|
 
+另外，使用`and`和`or`关键字可以组合任意多的逻辑表达式已完成复杂的过滤。需要注意的是`and`的优先级高于`or`。
+
 ### 通配符
+
+#### like
+
+#### 百分号（%）
+
+#### 下划线（_）
+
+#### 方括号（[]）
 
 ### 聚合函数
 
@@ -98,7 +108,7 @@ MySQL支持三种类型的连接：
 - 左连接（`left join`）
 - 右连接（`right join`）
 
-> 注意：在MySQL中`join`,`cross join`以及`inner join`是等效的，可以互相替换
+> 注意：在MySQL中`join`,`cross join`以及`inner join`是等效的，可以互相替换。
 
 以下是连接的具体用法、含义以及实验结果：
 
