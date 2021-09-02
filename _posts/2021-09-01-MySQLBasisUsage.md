@@ -35,6 +35,10 @@ update table_name set col = val where ...
 
 ### 删除
 
+```sql
+delete from table_name where ...
+```
+
 ### 查询
 
 ```sql
@@ -50,6 +54,12 @@ select col1, col2 from table_name where ...
 ### 聚合函数
 
 ### 联表
+
+#### inner join
+
+#### left join
+
+#### right join
 
 ### 组合
 
