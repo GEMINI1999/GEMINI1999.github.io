@@ -91,13 +91,37 @@ select col2, col2 from table_name where ...
 
 ### 通配符
 
-#### like
+#### like操作符
+
+在where子句中使用通配符，必须使用like操作符
 
 #### 百分号（%）
 
+`%`表示任何字符出现任意次数
+
+`%`能匹配0个、1个或多个字符
+
+```sql
+# 匹配hello起头的值
+select col from table_name where col like 'hello%';
+
+# 匹配任何位置上包含hello文本的值
+select col from table_name where col like '%hello%';
+
+# 匹配中间部分可以是任意值的值
+select col from table_name where col like 'hel%lo';
+
+# 注意！下面语句不会匹配col为null的值
+select col from table_name where col like '%'
+```
+
 #### 下划线（_）
 
+下划线`_`的用法和百分号`%`用途一样，但只能匹配单个字符，而不是多个字符
+
 #### 方括号（[]）
+
+方括号`[]`用来指定一个字符集，必须匹配指定位置的一个字符
 
 ### 聚合函数
 
