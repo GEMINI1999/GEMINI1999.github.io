@@ -7,7 +7,9 @@ tags:
         - 基础用法
 toc: true
 ---
-## DDL（Data Definition Language，数据库定义语言）操作
+## DDL操作
+
+DDL的全称为Data Definition Language，翻译为数据库定义语言
 
 ### 创建数据库
 
@@ -19,7 +21,9 @@ toc: true
 
 ### 修改表
 
-## DML（Data Manipulation Language，数据库操纵语言）操作
+## DML操作
+
+DML的全称为Data Manipulation Language，翻译为数据库操纵语言
 
 ### 插入
 
@@ -70,22 +74,22 @@ select col2, col2 from table_name where ...
 
 |符号|含义|
 |---|---|
-|=|等于|
-|>|大于|
-|<|小于|
-|>=|大于等于|
-|<=|小于等于|
-|<>,!=|不等于|
-|between ... and ...|一个值是否在范围中|
-|not between ... and ...|一个值是否不在范围中|
-|in|一个值是否在一组值内|
-|not in|一个值是否不在一组值内|
-|like|简单的模式匹配|
-|not like|简单模式匹配的否定|
-|is|针对布尔值的测试|
-|is not|针对布尔值的测试|
-|is null|空值测试|
-|is not null|非空值测试|
+|`=`|等于|
+|`>`|大于|
+|`<`|小于|
+|`>=`|大于等于|
+|`<=`|小于等于|
+|`<>,!=`|不等于|
+|`between ... and ...`|一个值是否在范围中|
+|`not between ... and ...`|一个值是否不在范围中|
+|`in`|一个值是否在一组值内|
+|`not in`|一个值是否不在一组值内|
+|`like`|简单的模式匹配|
+|`not like`|简单模式匹配的否定|
+|`is`|针对布尔值的测试|
+|`is not`|针对布尔值的测试|
+|`is null`|空值测试|
+|`is not null`|非空值测试|
 
 另外，使用`and`和`or`关键字可以组合任意多的逻辑表达式已完成复杂的过滤。需要注意的是`and`的优先级高于`or`。
 
@@ -120,6 +124,43 @@ select col from table_name where col like '%'
 下划线`_`的用法和百分号`%`用途一样，但只能匹配单个字符，而不是多个字符
 
 ### 聚合函数
+
+MySQL支持有很多聚合函数，但比较常见主要有以下5种：
+
+|函数|说明|
+|-|-|
+|`AVG()`|返回某列的平均值|
+|`COUNT()`|返回某列的行数|
+|`MAX()`|返回某列的最大值|
+|`MIN()`|返回某列的最小值|
+|`SUM()`|返回某列值之和|
+
+#### AVG()
+
+```sql
+# 计算col列的平均值（若带有where条件，则只计算满足条件的col列的平均值）
+select avg(col) from table_name [where id = ...]
+```
+
+#### COUNT()
+
+```sql
+# 统计所有的行数包括null
+count(*)
+# 统计所有的行数包括null
+count(1)
+# 统计当前列的行数不包括null
+count(col)
+```
+
+> 注意，有很多地方说count(1)性能要由于count(*)，但实际上二者在高版本MySQL（5.5及以上）毫无区别。所以这里推荐使用count(\*)
+参考文档https://zhuanlan.zhihu.com/p/28397595
+
+#### MAX()
+
+#### MIN()
+
+#### SUM()
 
 ### 联表
 
