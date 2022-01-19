@@ -13,13 +13,251 @@ DDL的全称为Data Definition Language，翻译为数据库定义语言
 
 ### 创建数据库
 
+```sql
+CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] db_name
+    [create_option] ...
+
+create_option: [DEFAULT] {
+    CHARACTER SET [=] charset_name
+  | COLLATE [=] collation_name
+}
+```
+
 ### 删除数据库
+
+```sql
+DROP {DATABASE | SCHEMA} [IF EXISTS] db_name
+```
 
 ### 创建表
 
+例：
+```sql
+CREATE TABLE `bilibili_video_info` (
+   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '视频编号',
+   `pic` varchar(255) NOT NULL COMMENT '视频预览图地址',
+   `pubdate` varchar(20) NOT NULL COMMENT '视频发布时间',
+   `desc` text NOT NULL COMMENT '视频简介',
+   `title` varchar(255) NOT NULL COMMENT '视频标题',
+   `owner_name` varchar(50) NOT NULL COMMENT '视频作者',
+   `view` int(10) NOT NULL COMMENT '视频播放数',
+   `rank` int(10) DEFAULT NULL COMMENT '视频排名',
+   `category` varchar(255) NOT NULL COMMENT '视频类别',
+   `get_time` varchar(50) DEFAULT NULL COMMENT '视频挖掘时间',
+   `url` varchar(255) DEFAULT NULL COMMENT '视频播放地址',
+   PRIMARY KEY (`id`) USING BTREE,
+   UNIQUE KEY `url` (`url`) USING BTREE COMMENT '唯一索引'
+ ) ENGINE=InnoDB AUTO_INCREMENT=1447 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC
+```
+
+```sql
+CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+    (create_definition,...)
+    [table_options]
+    [partition_options]
+
+CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+    [(create_definition,...)]
+    [table_options]
+    [partition_options]
+    [IGNORE | REPLACE]
+    [AS] query_expression
+
+CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+    { LIKE old_tbl_name | (LIKE old_tbl_name) }
+
+create_definition: {
+    col_name column_definition
+  | {INDEX | KEY} [index_name] [index_type] (key_part,...)
+      [index_option] ...
+  | {FULLTEXT | SPATIAL} [INDEX | KEY] [index_name] (key_part,...)
+      [index_option] ...
+  | [CONSTRAINT [symbol]] PRIMARY KEY
+      [index_type] (key_part,...)
+      [index_option] ...
+  | [CONSTRAINT [symbol]] UNIQUE [INDEX | KEY]
+      [index_name] [index_type] (key_part,...)
+      [index_option] ...
+  | [CONSTRAINT [symbol]] FOREIGN KEY
+      [index_name] (col_name,...)
+      reference_definition
+  | CHECK (expr)
+}
+
+column_definition: {
+    data_type [NOT NULL | NULL] [DEFAULT default_value]
+      [AUTO_INCREMENT] [UNIQUE [KEY]] [[PRIMARY] KEY]
+      [COMMENT 'string']
+      [COLLATE collation_name]
+      [COLUMN_FORMAT {FIXED | DYNAMIC | DEFAULT}]
+      [STORAGE {DISK | MEMORY}]
+      [reference_definition]
+  | data_type
+      [COLLATE collation_name]
+      [GENERATED ALWAYS] AS (expr)
+      [VIRTUAL | STORED] [NOT NULL | NULL]
+      [UNIQUE [KEY]] [[PRIMARY] KEY]
+      [COMMENT 'string']
+      [reference_definition]
+}
+
+data_type:
+    (see Chapter 11, Data Types)
+
+key_part:
+    col_name [(length)] [ASC | DESC]
+
+index_type:
+    USING {BTREE | HASH}
+
+index_option: {
+    KEY_BLOCK_SIZE [=] value
+  | index_type
+  | WITH PARSER parser_name
+  | COMMENT 'string'
+}
+
+reference_definition:
+    REFERENCES tbl_name (key_part,...)
+      [MATCH FULL | MATCH PARTIAL | MATCH SIMPLE]
+      [ON DELETE reference_option]
+      [ON UPDATE reference_option]
+
+reference_option:
+    RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT
+
+table_options:
+    table_option [[,] table_option] ...
+
+table_option: {
+    AUTO_INCREMENT [=] value
+  | AVG_ROW_LENGTH [=] value
+  | [DEFAULT] CHARACTER SET [=] charset_name
+  | CHECKSUM [=] {0 | 1}
+  | [DEFAULT] COLLATE [=] collation_name
+  | COMMENT [=] 'string'
+  | COMPRESSION [=] {'ZLIB' | 'LZ4' | 'NONE'}
+  | CONNECTION [=] 'connect_string'
+  | {DATA | INDEX} DIRECTORY [=] 'absolute path to directory'
+  | DELAY_KEY_WRITE [=] {0 | 1}
+  | ENCRYPTION [=] {'Y' | 'N'}
+  | ENGINE [=] engine_name
+  | INSERT_METHOD [=] { NO | FIRST | LAST }
+  | KEY_BLOCK_SIZE [=] value
+  | MAX_ROWS [=] value
+  | MIN_ROWS [=] value
+  | PACK_KEYS [=] {0 | 1 | DEFAULT}
+  | PASSWORD [=] 'string'
+  | ROW_FORMAT [=] {DEFAULT | DYNAMIC | FIXED | COMPRESSED | REDUNDANT | COMPACT}
+  | STATS_AUTO_RECALC [=] {DEFAULT | 0 | 1}
+  | STATS_PERSISTENT [=] {DEFAULT | 0 | 1}
+  | STATS_SAMPLE_PAGES [=] value
+  | TABLESPACE tablespace_name [STORAGE {DISK | MEMORY}]
+  | UNION [=] (tbl_name[,tbl_name]...)
+}
+
+partition_options:
+    PARTITION BY
+        { [LINEAR] HASH(expr)
+        | [LINEAR] KEY [ALGORITHM={1 | 2}] (column_list)
+        | RANGE{(expr) | COLUMNS(column_list)}
+        | LIST{(expr) | COLUMNS(column_list)} }
+    [PARTITIONS num]
+    [SUBPARTITION BY
+        { [LINEAR] HASH(expr)
+        | [LINEAR] KEY [ALGORITHM={1 | 2}] (column_list) }
+      [SUBPARTITIONS num]
+    ]
+    [(partition_definition [, partition_definition] ...)]
+
+partition_definition:
+    PARTITION partition_name
+        [VALUES
+            {LESS THAN {(expr | value_list) | MAXVALUE}
+            |
+            IN (value_list)}]
+        [[STORAGE] ENGINE [=] engine_name]
+        [COMMENT [=] 'string' ]
+        [DATA DIRECTORY [=] 'data_dir']
+        [INDEX DIRECTORY [=] 'index_dir']
+        [MAX_ROWS [=] max_number_of_rows]
+        [MIN_ROWS [=] min_number_of_rows]
+        [TABLESPACE [=] tablespace_name]
+        [(subpartition_definition [, subpartition_definition] ...)]
+
+subpartition_definition:
+    SUBPARTITION logical_name
+        [[STORAGE] ENGINE [=] engine_name]
+        [COMMENT [=] 'string' ]
+        [DATA DIRECTORY [=] 'data_dir']
+        [INDEX DIRECTORY [=] 'index_dir']
+        [MAX_ROWS [=] max_number_of_rows]
+        [MIN_ROWS [=] min_number_of_rows]
+        [TABLESPACE [=] tablespace_name]
+
+query_expression:
+    SELECT ...   (Some valid select or union statement)
+```
+
 ### 删除表
 
+```sql
+DROP [TEMPORARY] TABLE [IF EXISTS]
+    tbl_name [, tbl_name] ...
+    [RESTRICT | CASCADE]
+```
+
 ### 修改表
+
+```sql
+ALTER TABLE tbl_name
+    [alter_option [, alter_option] ...]
+    [partition_options]
+
+alter_option: {
+    table_options
+  | ADD [COLUMN] col_name column_definition
+        [FIRST | AFTER col_name]
+  | ADD [COLUMN] (col_name column_definition,...)
+  | ADD {INDEX | KEY} [index_name]
+        [index_type] (key_part,...) [index_option] ...
+  | ADD {FULLTEXT | SPATIAL} [INDEX | KEY] [index_name]
+        (key_part,...) [index_option] ...
+  | ADD [CONSTRAINT [symbol]] PRIMARY KEY
+        [index_type] (key_part,...)
+        [index_option] ...
+  | ADD [CONSTRAINT [symbol]] UNIQUE [INDEX | KEY]
+        [index_name] [index_type] (key_part,...)
+        [index_option] ...
+  | ADD [CONSTRAINT [symbol]] FOREIGN KEY
+        [index_name] (col_name,...)
+        reference_definition
+  | ADD CHECK (expr)
+  | ALGORITHM [=] {DEFAULT | INPLACE | COPY}
+  | ALTER [COLUMN] col_name {
+        SET DEFAULT {literal | (expr)}
+      | DROP DEFAULT
+    }
+  | CHANGE [COLUMN] old_col_name new_col_name column_definition
+        [FIRST | AFTER col_name]
+  | [DEFAULT] CHARACTER SET [=] charset_name [COLLATE [=] collation_name]
+  | CONVERT TO CHARACTER SET charset_name [COLLATE collation_name]
+  | {DISABLE | ENABLE} KEYS
+  | {DISCARD | IMPORT} TABLESPACE
+  | DROP [COLUMN] col_name
+  | DROP {INDEX | KEY} index_name
+  | DROP PRIMARY KEY
+  | DROP FOREIGN KEY fk_symbol
+  | FORCE
+  | LOCK [=] {DEFAULT | NONE | SHARED | EXCLUSIVE}
+  | MODIFY [COLUMN] col_name column_definition
+        [FIRST | AFTER col_name]
+  | ORDER BY col_name [, col_name] ...
+  | RENAME {INDEX | KEY} old_index_name TO new_index_name
+  | RENAME [TO | AS] new_tbl_name
+  | {WITHOUT | WITH} VALIDATION
+}
+```
 
 ## DML操作
 
@@ -154,6 +392,7 @@ count(col)
 ```
 
 > 注意，有很多地方说count(1)性能要由于count(*)，但实际上二者在高版本MySQL（5.5及以上）毫无区别。所以这里推荐使用count(\*)
+
 参考文档https://zhuanlan.zhihu.com/p/28397595
 
 #### MAX()
@@ -257,5 +496,5 @@ select col1, col2 from table_name1 right join table_name2 on table_name1.id = ta
 
 |命令|功能|
 |-|-|
-|||
+|show create table 表名|显示表创建语句|
 
