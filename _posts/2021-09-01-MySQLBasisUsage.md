@@ -397,9 +397,21 @@ count(col)
 
 #### MAX()
 
+```sql
+select max(view) from table_name
+```
+
 #### MIN()
 
+```sql
+select min(view) from table_name
+```
+
 #### SUM()
+
+```sql
+select sum(view) from table_name
+```
 
 ### 联表
 
@@ -497,4 +509,5 @@ select col1, col2 from table_name1 right join table_name2 on table_name1.id = ta
 |命令|功能|
 |-|-|
 |show create table 表名|显示表创建语句|
+|show engine innodb status|查看死锁日志|
 
